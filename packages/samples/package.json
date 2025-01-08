@@ -35,5 +35,8 @@
   "directories": {
     "lib": "lib",
     "test": "tests"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1"
   }
 }
