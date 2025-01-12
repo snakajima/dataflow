@@ -67,7 +67,10 @@ const propStringFunction: PropFunction = (result, propId) => {
     if (propId === "toUpperCase()") {
       return result.toUpperCase();
     }
-    // split()
+    const match = propId.match(/^split\(([-_:;.,\s\n]+)\)$/)
+    if (match) {
+      return result.split(match[1]);
+    }
   }
   return undefined;
 };

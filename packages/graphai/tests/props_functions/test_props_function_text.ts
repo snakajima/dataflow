@@ -127,3 +127,15 @@ test("test getDataFromSource string toUpperCase", async () => {
   const res = getDataFromSource(result, source, propFunctions);
   assert.deepStrictEqual(res, data);
 });
+
+test("test getDataFromSource string split", async () => {
+  const inputId = ":node1.data.split(--)";
+  const result = { data: "Ab--Cd" };
+  const data = ["Ab", "Cd"];
+
+  const source = parseNodeName(inputId);
+  assert.deepStrictEqual(source, { nodeId: "node1", propIds: ["data", "split(--)"] });
+
+  const res = getDataFromSource(result, source, propFunctions);
+  assert.deepStrictEqual(res, data);
+});
