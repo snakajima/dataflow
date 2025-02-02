@@ -1,0 +1,18 @@
+version: 0.5
+nodes:
+  userInput:
+    agent: textInputAgent
+    params:
+      message: Question
+  llm:
+    agent: openAIAgent
+    inputs:
+      prompt: :userInput
+  output:
+    agent: stringTemplateAgent
+    console:
+      after: true
+    params:
+      template: "LLM: ${text}"
+    inputs:
+      text: :llm.text
